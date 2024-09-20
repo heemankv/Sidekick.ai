@@ -112,110 +112,85 @@ def run_selenium_bot(json: dict) :
     submit_form(website_driver)
     sleep(1)
     hash = extract_hash(website_driver)
-    print(hash)
-
-
-    sleep(10)
-
-
-def main() :
-
-    json = {
-        # add realistic values
-            "designation" : "father-name-checkbox",
-            "last-name" : "Kumar",
-            "first-name" : "Rajesh",
-            "middle-name" : "Kumar",
-            "full-name" : "full-name",
-            "single-mom" : "single-mom-yes",
-            "father-last-name" : "Kumar",
-            "father-first-name" : "Rajesh",
-            "father-middle-name" : "Kumar",
-            "mother-last-name" : "Kumari",
-            "mother-first-name" : "Rajesh",
-            "mother-middle-name" : "Kumar",
-            "parent-priority" : "father-name-radio",
-            "dd" : "02",
-            "mm" : "02",
-            "yyyy" : "2002",
-            "gender" : "male-radio",
-            "address-priority" : "residential-radio",
-            "office-name" : "Karnot",
-            "flat-door-block-no" : "101",
-            "name-of-premises" : "Sadbhawana",
-            "road-street-lane-post-office" : "Carrot Street",
-            "area-locality-taluka-sub-division" : "Kuala Lumpur",
-            "town-city-district" : "Kakarot",
-            "state-union-territory" : "Kerala",
-            "pin-input" : "110011",
-            "country" : "India",
-            
-            "country-code" : "91",
-            "email-id" : "rajeshkumar@gmail.com",
-            "mobile-no-radio" : "mobile-no-radio",
-            "area-std-code-input" : "011",
-            "aadhaar-radio" : "aadhaar-radio",
-            "aadhaar-number-input" : "123456789012",
-            "aadhaar-name-input" : "Rajesh Kumar",
-            "verification-input" : "Rajesh Kumar",
-            "verification-pronouns-select" : "Himself/herself",
-            "submitted-place-input" : "New Delhi",
-
-            "proof-of-identity-select" : "Adhaar Card",
-            "enclosed-select" : "Driver License",
-            "proof-of-address-select" : "Driver License",
-            "proof-of-date-of-birth-select" : "Adhaar Card",
-            "pan-card-type" : "physical-pan-card-radio",
-
-            "photo-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
-            "signature-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
-            "document-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
-        }
-
-    run_selenium_bot(json)
-
-
-
-if __name__ == "__main__":
-    main()
-
+    return hash
 
 # def main() :
 
-#     @app.get("/")
-#     async def root():
-#         return {"message": "Hello World"}
-
-
-#     @app.post("/run")
-#     async def run(body: dict):
-#         # create json : 
-#         json = {
-#             "designation" : "father-name-checkbox",
-#             "last-name" : "last-name",
-#             "first-name" : "first-name",
-#             "middle-name" : "middle-name",
-#             "full-name" : "full-name",
-#             "single-mom" : "single-mom",
-#             "father-last-name" : "father-last-name",
-#             "father-first-name" : "father-first-name",
-#             "father-middle-name" : "father-middle-name",
-#             "mother-last-name" : "mother-last-name",
-#             "mother-first-name" : "mother-first-name",
-#             "mother-middle-name" : "mother-middle-name",
-#             "parent-priority" : "parent-priority",
-#             "dd" : "02",
-#             "mm" : "02",
-#             "yyyy" : "2002",
-#             "gender" : "gender",
-#         }
-
-#         hash = run_selenium_bot(json)
-#         return {"hash": hash}
-    
-
-#     return app
-
+#     hash = run_selenium_bot(json)
+#     print(hash)
+#     sleep(5)
 
 # if __name__ == "__main__":
-#     uvicorn.run(app, host="0.0.0.0", port=8000)
+#     main()
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+@app.post("/run")
+async def run(body: dict):
+    # disable json : 
+    json = {
+    # add realistic values
+        "designation" : "father-name-checkbox",
+        "last-name" : "Kumar",
+        "first-name" : "Rajesh",
+        "middle-name" : "Kumar",
+        "full-name" : "full-name",
+        "single-mom" : "single-mom-yes",
+        "father-last-name" : "Kumar",
+        "father-first-name" : "Rajesh",
+        "father-middle-name" : "Kumar",
+        "mother-last-name" : "Kumari",
+        "mother-first-name" : "Rajesh",
+        "mother-middle-name" : "Kumar",
+        "parent-priority" : "father-name-radio",
+        "dd" : "02",
+        "mm" : "02",
+        "yyyy" : "2002",
+        "gender" : "male-radio",
+        "address-priority" : "residential-radio",
+        "office-name" : "Karnot",
+        "flat-door-block-no" : "101",
+        "name-of-premises" : "Sadbhawana",
+        "road-street-lane-post-office" : "Carrot Street",
+        "area-locality-taluka-sub-division" : "Kuala Lumpur",
+        "town-city-district" : "Kakarot",
+        "state-union-territory" : "Kerala",
+        "pin-input" : "110011",
+        "country" : "India",
+        
+        "country-code" : "91",
+        "email-id" : "rajeshkumar@gmail.com",
+        "mobile-no-radio" : "mobile-no-radio",
+        "area-std-code-input" : "011",
+        "aadhaar-radio" : "aadhaar-radio",
+        "aadhaar-number-input" : "123456789012",
+        "aadhaar-name-input" : "Rajesh Kumar",
+        "verification-input" : "Rajesh Kumar",
+        "verification-pronouns-select" : "Himself/herself",
+        "submitted-place-input" : "New Delhi",
+
+        "proof-of-identity-select" : "Adhaar Card",
+        "enclosed-select" : "Driver License",
+        "proof-of-address-select" : "Driver License",
+        "proof-of-date-of-birth-select" : "Adhaar Card",
+        "pan-card-type" : "physical-pan-card-radio",
+
+        "photo-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
+        "signature-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
+        "document-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
+    }
+
+    hash = run_selenium_bot(json)
+    if hash is None :
+        return {"success": False, "hash": None}
+    return {"success": True, "hash": hash}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+
+# curl -X POST http://localhost:8000/run -H "Content-Type: application/json" -d '{"data": "data"}'
