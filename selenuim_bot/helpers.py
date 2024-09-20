@@ -1,6 +1,8 @@
+from selenium.webdriver.common.by import By
+
 
 # Helper functions
-def fill_radio_button(driver, id, value) :
+def fill_radio_button(driver, id) :
     radio_button = driver.find_element(By.ID, id)
     radio_button.click()
 
