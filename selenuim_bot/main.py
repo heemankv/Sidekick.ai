@@ -98,9 +98,23 @@ def fill(json : dict, driver: webdriver.Chrome) :
     fill_file_upload(driver,"document-input", json["document-input"])
 
 
+def submit_form(driver: webdriver.Chrome) :
+    driver.find_element(By.ID, "submit").click()
+
+def extract_hash(driver: webdriver.Chrome) :
+    return driver.find_element(By.ID, "uuid").text
+
+
 def run_selenium_bot(json: dict) :
     website_driver = get_website_driver()
     fill(json, website_driver)
+    sleep(1)
+    submit_form(website_driver)
+    sleep(1)
+    hash = extract_hash(website_driver)
+    print(hash)
+
+
     sleep(10)
 
 
@@ -159,6 +173,7 @@ def main() :
         }
 
     run_selenium_bot(json)
+
 
 
 if __name__ == "__main__":
