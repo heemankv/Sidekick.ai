@@ -9,7 +9,9 @@ import {
   CircuitString,
   MerkleMap,
   Poseidon,
+  MerkleMapWitness,
 } from "o1js";
+import axios from "axios";
 
 async function main() {
   console.log("o1js loaded");
@@ -119,16 +121,32 @@ async function processForm(
   input: FormInput
 ): Promise<MerkleMap> {
   const formHash = Poseidon.hash(input.toFields());
+
   let witness = map.getWitness(formHash);
+  //   let witness: MerkleMapWitness = await axios.get(
+  //     "http://localhost:3000/getContractRootWitness/" + formHash
+  //   );
 
   console.log("Verifying form...");
   await executeTransaction(deployerAccount, deployerKey, async () => {
     formVerifier.verifyForm(input, witness);
   });
+  console.log("form verified ✅");
 
   // Update our off-chain map
   map.set(formHash, Field(1));
   witness = map.getWitness(formHash);
+
+  // Setting the value
+  //   await axios.post("http://localhost:3000/updateContractRoot", {
+  //     formHash,
+  //   });
+  console.log("Contract Root updated in backend ✅");
+
+  // Getting the witness
+  //   let witness_updated: MerkleMapWitness = await axios.get(
+  //     "http://localhost:3000/getContractRootWitness/" + formHash
+  //   );
 
   console.log("Getting verification result...");
   await executeTransaction(deployerAccount, deployerKey, async () => {
