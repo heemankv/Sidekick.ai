@@ -1,0 +1,76 @@
+{
+  "profile": {
+    "name": "John Doe",
+    "dob": "01/01/1970",
+    "gender": "",
+    "email": "",
+    "phone": ""
+  },
+  "family": {
+    "spouse": {
+        "name": "John Doe",
+        "dob": "01/01/1970",
+        "gender": "",
+        "email": "",
+        "phone": ""
+      },
+    "father": {
+        "name": "John Doe",
+        "dob": "01/01/1970",
+        "gender": "",
+        "email": "",
+        "phone": ""
+      },
+    "mother": {
+        "name": "John Doe",
+        "dob": "01/01/1970",
+        "gender": "",
+        "email": "",
+        "phone": ""
+      }
+  },
+  "address": {
+    "street": "",
+    "city": "",
+    "state": "",
+    "zip": ""
+  },
+  "credentials": {
+    "aadhaar": {
+      "image_url": "",
+      "number": "",
+      "proof_type": "photo",
+      "ext": "pdf"
+    },
+    "passport": {
+      "image_url": "",
+      "number": "",
+      "proof_type": "photo",
+      "ext": "pdf"
+    },
+    "signature": {
+      "image_url": "",
+      "number": "",
+      "proof_type": "photo",
+      "ext": "jpeg"
+    }
+  },
+  "profession": {
+    "title": "",
+    "company": "",
+    "company_email": "",
+    "phone": "",
+    "address": {
+      "street": "",
+      "city": "",
+      "state": "",
+      "zip": ""
+    }
+  },
+  "emergency": {
+    "contact": {
+      "name": "",
+      "phone": ""
+    }
+  }
+}
