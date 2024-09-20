@@ -56,8 +56,35 @@ def fill(json : dict, driver: webdriver.Chrome) :
 
     # # Address for Communication
     fill_radio_button(driver, json["address-priority"])
-    fill_input_field(driver, "office-name", json["office-name"])    
+    fill_input_field(driver, "office-name", json["office-name"]) 
+    fill_input_field(driver, "flat-door-block-no", json["flat-door-block-no"])
+    fill_input_field(driver, "name-of-premises", json["name-of-premises"])
+    fill_input_field(driver, "road-street-lane-post-office", json["road-street-lane-post-office"])
+    fill_input_field(driver, "area-locality-taluka-sub-division", json["area-locality-taluka-sub-division"])
+    fill_input_field(driver, "town-city-district", json["town-city-district"])
+    fill_input_field(driver, "state-union-territory", json["state-union-territory"])
+    fill_input_field(driver, "pin-input", json["pin-input"])
+    fill_input_field(driver, "country-select", json["country"])
+
+    # Contact details 
+    if json["telephone-no-checkbox"]:
+        fill_checkbox(driver, "telephone-no-checkbox")
     
+    fill_option_field(driver, "country-code", json["country-code"])
+
+    fill_radio_button(driver, json["mobile-no-radio"])
+
+    fill_input_field(driver, "email-id-input", json["email-id"])
+
+    if json["aadhaar-radio"]:
+        fill_radio_button(driver, json["aadhaar-radio"])
+    
+    fill_input_field(driver, "aadhaar-number-input", json["aadhaar-number-input"])
+    fill_input_field(driver, "aadhaar-name-input", json["aadhaar-name-input"])
+
+    fill_input_field(driver, "verification-input", json["verification-input"])
+
+
 
 
 def run_selenium_bot(json: dict) :
@@ -99,10 +126,18 @@ def main() :
             "town-city-district" : "Kakarot",
             "state-union-territory" : "Kerala",
             "pin-input" : "110011",
+            "country" : "India",
+            
+            "country-code" : "91",
+            "email-id" : "rajeshkumar@gmail.com",
+
+            "aadhaar-radio" : "aadhaar-radio",
+            "aadhaar-number-input" : "123456789012",
+            "aadhaar-name-input" : "Rajesh Kumar",
+            "verification-input" : "Rajesh Kumar",
         }
 
     run_selenium_bot(json)
-    sleep(10)
 
 
 if __name__ == "__main__":
