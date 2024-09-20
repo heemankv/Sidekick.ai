@@ -743,8 +743,8 @@ function submitForm() {
                     <td colspan="2"> I/We
                         <input type="text" size="74" id="verification-input">
                         ,the applicant,in the capacity of
-                        <select>
-                            <option value="">-- Please Select --</option>
+                        <select id="verification-pronouns-select">
+                            <option >-- Please Select --</option>
                             <option> Himself/herself</option>
                             <option> Representative Assessee</option>
                         </select>
@@ -779,76 +779,25 @@ function submitForm() {
                         I/We have enclosed <br>
                         <select id="enclosed-select">
                             <option>-- Please Select --</option>
-                            <option>Copy of passport</option>
-                            <option>Copy of
-                                Person of Indian Origin card issued by Government of India</option>
-                            <option>Copy of
-                                Overseas Citizenship of India card issued by Government of India</option>
-                            <option>
-                                Copy of National ID/Citizenship ID/Taxpayer ID attested by Indian Embassy/Consulate/High
-                                Commission/Apostille/authorised officials of overseas branches of Scheduled Banks
-                                registered in India</option>
+                            <option>Adhaar Card</option>
+                            <option>Driver License</option>
+                           
                         </select>
                         as proof of identity,
                         <select id="proof-of-identity-select">
-
-                            <option>-- Please select --</option>
-                            <option>Copy of passport</option>
-                            <option>Copy of
-                                Bank account statement in the country of residence</option>
-                            <option>
-                                Copy of certificate of residence in India or Residential permit issued by the State
-                                Police Authority</option>
-                            <option>
-                                Copy of the registration certificate issued by the Foreigner's Registration Office
-                                showing Indian address</option>
-                            <option>Copy of
-                                Person of Indian Origin card issued by Government of India</option>
-                            <option>
-                                Copy of Non-resident External bank account statement in India</option>
-                            <option>
-                                Copy of Visa granted and copy of appointment letter or contract from Indian Company and
-                                Certificate (in original) of Indian Address issued by the employer</option>
-                            <option>Copy of
-                                Overseas Citizen of India card issued by Government of India</option>
+                            <option>-- Please Select --</option>
+                            <option>Adhaar Card</option>
+                            <option>Driver License</option>
                         </select>
 
                         as proof of address,
 
                         <select id="proof-of-address-select">
-                            <option>-- Please select --</option>
-                            <option>Copy of Birth certificate issued by the Municipal Authority or any
-                                office authorised to issue Birth and Death Certificate by the Registrar of Birth and
-                                Deaths or the Indian Consulate</option>
-                            <option>Copy of Pension payment order</option>
-                            <option>Copy of Marriage certificate issued by Registrar of Marriages</option>
-                            <option>Copy of Matriculation certificate</option>
-                            <option>Copy of Passport</option>
-                            <option>Copy of Driving licence</option>
-                            <option>Copy of Domicile certificate issued by the Government</option>
-                            <option>Copy of Affidavit sworn before a magistrate stating the date of birth
-                            </option>
-                            <option>Copy of Elector�s photo identity card</option>
-                            <option>Copy of Aadhaar Card issued by the Unique Identification Authority of
-                                India</option>
-                            <option>Copy of Central Government Health Service Scheme Card</option>
-                            <option>Copy of Ex-Servicemen Contributory Health Scheme photo card</option>
-                            <option>Copy of Photo identity card issued by the Central Government or State
-                                Government or Public Sector Undertaking</option>
-                            <option>Copy of Mark sheet of recognised board</option>
+                            <option>-- Please Select --</option>
+                            <option>Adhaar Card</option>
+                            <option>Driver License</option>
                         </select>
-                        as proof of date <br> of birth and
-                        <select id="proof-of-date-of-birth-select">
-                            <option>--Please Select--
-                            </option>
-                            <option> Copy of PAN card
-                            </option>
-                            <option> Copy of PAN allotment letter
-                            </option>
-                            <option> No document
-                            </option>
-                        </select>
-                        as proof of PAN allotted.
+                        as proof of date <br> of birth.
                     </td>
                 </tr>
                 <tr class="tr">
@@ -896,19 +845,6 @@ function submitForm() {
             </tbody>
             <table>
                 <tr>
-                    For Paperless PAN Application:
-                    <input type="radio" id="yes-radio" checked> Yes &nbsp; <input type="radio" id="no-radio"> No <br>
-                    <input type="radio" checked> DSC
-                    <select style="width: 15%">
-                        <option value="select">--Select--</option>
-                        <option value="MINOR">Minor</option>
-                        <option value="RA">Lunatic/Idiot</option>
-                        <option value="AP">Self</option>
-                    </select>
-                    &nbsp;&nbsp;
-                    <a class="nav__u"> Guidelines for DSC user</a>
-                </tr>
-                <tr>
                     <td>Upload Photo</td>
                     <td><input type="file" id="photo-input" accept="image/*"></td>
                     <td>Upload Signature</td>
@@ -919,34 +855,8 @@ function submitForm() {
                     <td>Upload Document</td>
                     <td><input type="file" id="document-input" accept="image/*"></td>
                 </tr>
-                <tr>
-                    <td colspan="3">
-                        <button class="btn" onClick="window.open('http://www.example.com','','width=500,height=350' );">
-                            <i class="fas fa-file"></i>
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            Fetch from DigiLocker
-                        </button>
-                    </td>
-                </tr>
+              
 
-            </table>
-            <table style="border: 5px">
-
-                <tr>
-                    <td style="padding: 5px">ALREADY UPLOADED PHOTO:</td>
-                    <td style="padding: 5px"><input type="text" size="30"></td>
-                </tr>
-                <tr>
-                    <td style="padding: 5px">ALREADY UPLOADED SIGNATURE:</td>
-                    <td style="padding: 5px"><input type="text" size="20"></td>
-                </tr>
-                <tr>
-
-                    <td>ALREADY UPLOADED DOCUMENTS:</td>
-                    <td style="padding: 5px 5px 0 5px; ">
-                        <textarea id="w3review" name="w3review" rows="10" cols="40"></textarea>
-                    </td>
-                </tr>
             </table>
             <div class="submit">
                 <input type="submit" value="Submit">

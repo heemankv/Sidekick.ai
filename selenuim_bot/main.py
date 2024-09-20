@@ -73,6 +73,7 @@ def fill(json : dict, driver: webdriver.Chrome) :
     fill_option_field(driver, "country-code", json["country-code"])
 
     fill_radio_button(driver, json["mobile-no-radio"])
+    fill_input_field(driver, "area-std-code-input", json["area-std-code-input"])
 
     fill_input_field(driver, "email-id-input", json["email-id"])
 
@@ -83,6 +84,14 @@ def fill(json : dict, driver: webdriver.Chrome) :
     fill_input_field(driver, "aadhaar-name-input", json["aadhaar-name-input"])
 
     fill_input_field(driver, "verification-input", json["verification-input"])
+    fill_input_field(driver, "verification-pronouns-select", json["verification-pronouns-select"])
+    
+    fill_input_field(driver, "submitted-place-input", json["submitted-place-input"])
+
+    fill_option_field(driver, "proof-of-identity-select", json["proof-of-identity-select"])
+    fill_option_field(driver, "proof-of-address-select", json["proof-of-address-select"])
+    fill_option_field(driver, "proof-of-date-of-birth-select", json["proof-of-date-of-birth-select"])
+    fill_radio_button(driver, json["pan-card-type"])
 
 
 
@@ -131,10 +140,18 @@ def main() :
             "country-code" : "91",
             "email-id" : "rajeshkumar@gmail.com",
             "mobile-no-radio" : "mobile-no-radio",
+            "area-std-code-input" : "011",
             "aadhaar-radio" : "aadhaar-radio",
             "aadhaar-number-input" : "123456789012",
             "aadhaar-name-input" : "Rajesh Kumar",
             "verification-input" : "Rajesh Kumar",
+            "verification-pronouns-select" : "Himself/herself",
+            "submitted-place-input" : "New Delhi",
+
+            "proof-of-identity-select" : "Adhaar Card",
+            "proof-of-address-select" : "Driver License",
+            "proof-of-date-of-birth-select" : "Adhaar Card",
+            "pan-card-type" : "physical-pan-card-radio",
         }
 
     run_selenium_bot(json)
