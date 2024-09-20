@@ -86,23 +86,22 @@ def fill(json : dict, driver: webdriver.Chrome) :
     fill_input_field(driver, "verification-input", json["verification-input"])
     fill_input_field(driver, "verification-pronouns-select", json["verification-pronouns-select"])
     
-    fill_input_field(driver, "submitted-place-input", json["submitted-place-input"])
+    fill_input_field(driver, "place-input", json["submitted-place-input"])
 
-    fill_option_field(driver, "proof-of-identity-select", json["proof-of-identity-select"])
-    fill_option_field(driver, "proof-of-address-select", json["proof-of-address-select"])
-    fill_option_field(driver, "proof-of-date-of-birth-select", json["proof-of-date-of-birth-select"])
+    fill_input_field(driver, "proof-of-identity-select", json["proof-of-identity-select"])
+    fill_input_field(driver, "proof-of-address-select", json["proof-of-address-select"])
+    fill_input_field(driver, "enclosed-select", json["enclosed-select"])
     fill_radio_button(driver, json["pan-card-type"])
 
-
+    fill_file_upload(driver,"photo-input", json["photo-input"])
+    fill_file_upload(driver,"signature-input", json["signature-input"])
+    fill_file_upload(driver,"document-input", json["document-input"])
 
 
 def run_selenium_bot(json: dict) :
     website_driver = get_website_driver()
     fill(json, website_driver)
     sleep(10)
-
-
-
 
 
 def main() :
@@ -149,9 +148,14 @@ def main() :
             "submitted-place-input" : "New Delhi",
 
             "proof-of-identity-select" : "Adhaar Card",
+            "enclosed-select" : "Driver License",
             "proof-of-address-select" : "Driver License",
             "proof-of-date-of-birth-select" : "Adhaar Card",
             "pan-card-type" : "physical-pan-card-radio",
+
+            "photo-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
+            "signature-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
+            "document-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
         }
 
     run_selenium_bot(json)

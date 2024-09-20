@@ -57,34 +57,59 @@ function submitForm() {
         aadhaarNumber: document.getElementById('aadhaar-number-input').value,
         aadhaarName: document.getElementById('aadhaar-name-input').value,
         gstn: document.getElementById('gstn-input').value,
-        // Add more fields as needed
+        photoInput: document.getElementById('photo-input').value,
+        signatureInput: document.getElementById('signature-input').value,
+        documentInput: document.getElementById('document-input').value,
+
     };
 
-    // Log the form data (you can replace this with your own logic to submit the data)
+    // Log the form data
     console.log('Form Data:', formData);
-    return UUID.v4();
+    
+    // Generate a random UUID
+    const uuid = generateUUID();
 
-    // You can add your own logic here to submit the form data to a server
-    // For example, using fetch API:
-    /*
-    fetch('/submit-form', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
+    // Show the pop-up with the UUID and success message
+    showSuccessPopup(uuid);
+}
+
+// UUID generator function
+function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0,
+            v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
     });
-    */
+}
 
-    // Optionally, you can show a success message to the user
-    // alert('Form submitted successfully!');
+// Function to show the success pop-up
+function showSuccessPopup(uuid) {
+    // Create the pop-up container
+    const popup = document.createElement('div');
+    popup.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        z-index: 1000;
+        text-align: center;
+    `;
+
+    // Add content to the pop-up
+    popup.innerHTML = `
+        <h2>Application Submitted Successfully!</h2>
+        <p>Your application ID is:</p>
+        <h3>${uuid}</h3>
+        <p>Please save this ID for future reference.</p>
+        <button onclick="this.parentElement.remove()">Close</button>
+    `;
+
+    // Add the pop-up to the body
+    document.body.appendChild(popup);
 }
 </script>
 
@@ -866,8 +891,9 @@ function submitForm() {
     </form>
     <hr>
     <footer>
-
+        
     </footer>
+    <div id="popup-container"></div>
 </body>
 
 </html>
