@@ -103,7 +103,7 @@ function showSuccessPopup(uuid) {
     popup.innerHTML = `
         <h2>Application Submitted Successfully!</h2>
         <p>Your application ID is:</p>
-        <h3>${uuid}</h3>
+        <h3 id="uuid">${uuid}</h3>
         <p>Please save this ID for future reference.</p>
         <button onclick="this.parentElement.remove()">Close</button>
     `;
