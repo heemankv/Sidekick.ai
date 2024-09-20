@@ -99,7 +99,7 @@ def fill(json : dict, driver: webdriver.Chrome) :
 
 
 def submit_form(driver: webdriver.Chrome) :
-    driver.find_element(By.ID, "submit").click()
+    driver.find_element(By.ID, "submit-btn").click()
 
 def extract_hash(driver: webdriver.Chrome) :
     return driver.find_element(By.ID, "uuid").text
