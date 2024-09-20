@@ -21,7 +21,6 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-JRZK2EZQ6E');
 </script>
 </head>
 
@@ -55,14 +54,14 @@
                             <i class="star">*</i>
                             Whether citizen of India </b>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yes
-                        <input type="radio">
+                        <input type="radio" id="indian-citizen-yes">
                         &nbsp;&nbsp;&nbsp;&nbsp; No
-                        <input type="radio">
+                        <input type="radio" id="indian-citizen-no">
                     </td>
                     <td rowspan="8" class="width__20"></td>
 
                 </tr>
-                <tr class="tr">
+                <!-- <tr class="tr">
                     <td>&nbsp;</td>
                     <td colspan="2">
                         <b>
@@ -72,7 +71,7 @@
                         <input type="text">
 
                     </td>
-                </tr>
+                </tr> -->
                 <tr class="tr">
                     <td><input type="checkbox"></td>
                     <td colspan="2">
@@ -90,36 +89,34 @@
                         </b>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
                         Shri/Mr
-                        <input type="radio">
+                        <input type="radio" id="shri-mr">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
                         Smt./Mrs.
-                        <input type="radio">
+                        <input type="radio" id="smt-mrs">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
                         Kumari/Ms
-                        <input type="radio">
+                        <input type="radio" id="kumari-ms">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-                        <a style="color:#a0a0a0"> M/s</a>
                     </td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td colspan="2">
                         <table>
-
                             <td> <b> Last Name/Surname</b>
                                 <br>
-                                <input type="text" size="15">
+                                <input type="text" size="15" id="last-name">
                             </td>
 
                             <td> <b> First Name</b>
                                 <br>
-                                <input type="text" size="15">
+                                <input type="text" size="15" id="first-name">
                             </td>
 
 
                             <td> <b> Middle Name</b>
                                 <br>
-                                <input type="text" size="15">
+                                <input type="text" size="15" id="middle-name">
                             </td>
                         </table>
                     </td>
@@ -137,7 +134,7 @@
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
-                    <td><input type="text" size="45"></td>
+                    <td><input type="text" size="45" id="full-name"></td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
@@ -155,13 +152,13 @@
                             mother only</b>
                     </td>
                     <td colspan="2">
-                        Yes <input type="radio">
+                        Yes <input type="radio" id="single-mom-yes">
                         &nbsp;&nbsp;&nbsp;
-                        No <input type="radio" checked>
+                        No <input type="radio" id="single-mom-no">
                     </td>
                 </tr>
                 <tr class="tr">
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" id="father-name-checkbox"></td>
                     <td colspan="2"><b>
                             <i>*</i> 3.Father's Name
                         </b>
@@ -177,24 +174,24 @@
 
                             <td> <b> Last Name/Surname</b>
                                 <br>
-                                <input type="text" size="15">
+                                <input type="text" size="15" id="father-last-name">
                             </td>
 
                             <td> <b> First Name</b>
                                 <br>
-                                <input type="text" size="15">
+                                <input type="text" size="15" id="father-first-name">
                             </td>
 
 
                             <td> <b> Middle Name</b>
                                 <br>
-                                <input type="text" size="15">
+                                <input type="text" size="15" id="father-middle-name">
                             </td>
                         </table>
                     </td>
                 </tr>
                 <tr class="tr">
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" id="mother-name-checkbox"></td>
                     <td colspan="2">
                         <a class="text__color">
                             Mother's Name(This field is optional.)
@@ -208,18 +205,18 @@
 
                             <td> <b> Last Name/Surname</b>
                                 <br>
-                                <input type="text" size="15">
+                                <input type="text" size="15" id="mother-last-name">
                             </td>
 
                             <td> <b> First Name</b>
                                 <br>
-                                <input type="text" size="15">
+                                <input type="text" size="15" id="mother-first-name">
                             </td>
 
 
                             <td> <b> Middle Name</b>
                                 <br>
-                                <input type="text" size="15">
+                                <input type="text" size="15" id="mother-middle-name">
                             </td>
                         </table>
                     </td>
@@ -236,8 +233,8 @@
                             name)</a>
                     </td>
                     <td>
-                        Father Name <input type="radio" checked> &nbsp;&nbsp;
-                        Mother Name <input type="radio">
+                        Father Name <input type="radio" id="father-name-radio" checked > &nbsp;&nbsp;
+                        Mother Name <input type="radio" id="mother-name-radio">
                     </td>
                 </tr>
                 <tr class="tr">
@@ -260,57 +257,57 @@
                             <tr>
                                 <td>
                                     <select>
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                        <option>05</option>
-                                        <option>06</option>
-                                        <option>07</option>
-                                        <option>08</option>
-                                        <option>09</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                        <option>13</option>
-                                        <option>14</option>
-                                        <option>15</option>
-                                        <option>16</option>
-                                        <option>17</option>
-                                        <option>18</option>
-                                        <option>19</option>
-                                        <option>20</option>
-                                        <option>21</option>
-                                        <option>22</option>
-                                        <option>23</option>
-                                        <option>24</option>
-                                        <option>25</option>
-                                        <option>26</option>
-                                        <option>27</option>
-                                        <option>28</option>
-                                        <option>29</option>
-                                        <option>30</option>
-                                        <option>31</option>
+                                        <option value="01"  >01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
                                     </select>
                                 </td>
 
                                 <td>
                                     <select>
-                                        <option>JAN</option>
-                                        <option>FEB</option>
-                                        <option>MAR</option>
-                                        <option>APR</option>
-                                        <option>MAY</option>
-                                        <option>JUN</option>
-                                        <option>JUL</option>
-                                        <option>AUG</option>
-                                        <option>SEP</option>
-                                        <option>OCT</option>
-                                        <option>NOV</option>
-                                        <option>DEC</option>
+                                        <option value="JAN">JAN</option>
+                                        <option value="FEB">FEB</option>
+                                        <option value="MAR">MAR</option>
+                                        <option value="APR">APR</option>
+                                        <option value="MAY">MAY</option>
+                                        <option value="JUN">JUN</option>
+                                        <option value="JUL">JUL</option>
+                                        <option value="AUG">AUG</option>
+                                        <option value="SEP">SEP</option>
+                                        <option value="OCT">OCT</option>
+                                        <option value="NOV">NOV</option>
+                                        <option value="DEC">DEC</option>
                                     </select>
                                 </td>
-                                <td><input type="text" size="4" maxlength="4"></td>
+                                <td><input type="text" size="4" maxlength="4" id="year-input"></td>
                             </tr>
                         </table>
                     </td>
@@ -325,9 +322,9 @@
                             6. Gender</b>
                     </td>
                     <td colspan="2">
-                        Male <input type="radio"> &nbsp;&nbsp;
-                        Female <input type="radio"> &nbsp;&nbsp;
-                        TransGender <input type="radio">
+                        Male <input type="radio" id="male-radio"> &nbsp;&nbsp;
+                        Female <input type="radio" id="female-radio"> &nbsp;&nbsp;
+                        TransGender <input type="radio" id="transgender-radio">
                     </td>
                 </tr>
                 <tr class="tr">
@@ -351,8 +348,8 @@
                         </b>
                     </td>
                     <td>
-                        Residential <input type="radio"> &nbsp;&nbsp;
-                        Office <input type="radio">
+                        Residential <input type="radio" id="residential-radio"> &nbsp;&nbsp;
+                        Office <input type="radio" id="office-radio">
                     </td>
                 </tr>
                 <tr class="tr">
@@ -361,77 +358,77 @@
                         <b>Office Name </b>
                         (to be filled only in case of office address)
                     </td>
-                    <td><input type="text" size="32"></td>
+                    <td><input type="text" size="32" id="office-name"></td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td><b>Flat/Door/Block No.</b></td>
-                    <td><input type="text" size="24"></td>
+                    <td><input type="text" size="24" id="flat-door-block-no"></td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td><b> Name of Premises/Building/Village</b></td>
-                    <td><input type="text" size="24"></td>
+                    <td><input type="text" size="24" id="name-of-premises"></td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td><b> Road/Street/Lane/Post Office</b></td>
-                    <td><input type="text" size="24"></td>
+                    <td><input type="text" size="24" id="road-street-lane-post-office"></td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td><b>Area/Locality/Taluka/Sub-Division</b></td>
-                    <td><input type="text" size="24"></td>
+                    <td><input type="text" size="24" id="area-locality-taluka-sub-division"></td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td><b> Town/City/District</b></td>
-                    <td><input type="text" size="24"></td>
+                    <td><input type="text" size="24" id="town-city-district"></td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td><b>State/Union Territory</b></td>
                     <td>
-                        <select>
-                            <option>-- Please Select --</option>
-                            <option> Andaman &amp; Nicobar Islands</option>
-                            <option> Andhra Pradesh</option>
-                            <option> Arunachal Pradesh</option>
-                            <option> Assam</option>
-                            <option> Bihar</option>
+                        <select id="state-union-territory">
+                            <option value="None">-- Please Select --</option>
+                            <option value="Andaman &amp; Nicobar Islands"> Andaman &amp; Nicobar Islands</option>
+                            <option value="Andhra Pradesh"> Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh"> Arunachal Pradesh</option>
+                            <option value="Assam"> Assam</option>
+                            <option value="Bihar"> Bihar</option>
                             <option> Chandigarh</option>
-                            <option> Chhattisgarh</option>
-                            <option> Dadara &amp; Nagar Haveli</option>
-                            <option> Daman &amp; Diu</option>
-                            <option> Delhi</option>
-                            <option> Goa</option>
-                            <option> Gujarat</option>
-                            <option> Haryana</option>
-                            <option> Himachal Pradesh</option>
-                            <option> Jammu &amp; Kashmir</option>
-                            <option> Jharkhand</option>
-                            <option> Karnataka</option>
-                            <option> Kerala</option>
-                            <option> Lakhswadeep</option>
-                            <option> Madhya Pradesh</option>
-                            <option> Maharashtra</option>
-                            <option> Manipur</option>
-                            <option> Meghalaya</option>
-                            <option> Mizoram</option>
-                            <option> Nagaland</option>
-                            <option> Orissa</option>
-                            <option> Pondicherry</option>
-                            <option> Punjab</option>
-                            <option> Rajasthan</option>
-                            <option> Sikkim</option>
-                            <option> Tamil Nadu</option>
-                            <option> Telangana</option>
-                            <option> Tripura</option>
-                            <option> Uttar Pradesh</option>
-                            <option> Uttaranchal</option>
-                            <option> West Bengal</option>
-                            <option> Ladakh</option>
-                            <option> Outside India </option>
+                            <option value="Chhattisgarh"> Chhattisgarh</option>
+                            <option value="Dadara &amp; Nagar Haveli"> Dadara &amp; Nagar Haveli</option>
+                            <option value="Daman &amp; Diu"> Daman &amp; Diu</option>
+                            <option value="Delhi"> Delhi</option>
+                            <option value="Goa"> Goa</option>
+                            <option value="Gujarat"> Gujarat</option>
+                            <option value="Haryana"> Haryana</option>
+                            <option value="Himachal Pradesh"> Himachal Pradesh</option>
+                            <option value="Jammu &amp; Kashmir"> Jammu &amp; Kashmir</option>
+                            <option value="Jharkhand"> Jharkhand</option>
+                            <option value="Karnataka"> Karnataka</option>
+                            <option value="Kerala"> Kerala</option>
+                            <option value="Lakhswadeep"> Lakhswadeep</option>
+                            <option value="Madhya Pradesh"> Madhya Pradesh</option>
+                            <option value="Maharashtra"> Maharashtra</option>
+                            <option value="Manipur"> Manipur</option>
+                            <option value="Meghalaya"> Meghalaya</option>
+                            <option value="Mizoram"> Mizoram</option>
+                            <option value="Nagaland"> Nagaland</option>
+                            <option value="Orissa"> Orissa</option>
+                            <option value="Pondicherry"> Pondicherry</option>
+                            <option value="Punjab"> Punjab</option>
+                            <option value="Rajasthan"> Rajasthan</option>
+                            <option value="Sikkim"> Sikkim</option>
+                            <option value="Tamil Nadu"> Tamil Nadu</option>
+                            <option value="Telangana"> Telangana</option>
+                            <option value="Tripura"> Tripura</option>
+                            <option value="Uttar Pradesh"> Uttar Pradesh</option>
+                            <option value="Uttaranchal"> Uttaranchal</option>
+                            <option value="West Bengal"> West Bengal</option>
+                            <option value="Ladakh"> Ladakh</option>
+                            <option value="Outside India"> Outside India </option>
 
                         </select>
                     </td>
@@ -439,14 +436,14 @@
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td><b>PIN</b>(Indicating PIN is mandatory)</td>
-                    <td><input type="text" size="6" maxlength="6"></td>
+                    <td><input type="text" size="6" maxlength="6" id="pin-input"></td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td><b>Country</b></td>
                     <td>
-                        <select style="width: 85%" disabled>
-                            <option> -- Please Select --</option>
+                        <select style="width: 85%" id="country-select">
+                            <option value="None"> -- Please Select --</option>
                         </select>
                     </td>
                 </tr>
@@ -456,7 +453,7 @@
                     </td>
                     <td><b>Zip</b></td>
                     <td>
-                        <input type="text" disabled size="6">
+                        <input type="text" disabled size="6" id="zip-input">
                     </td>
                 </tr>
                 <tr class="tr">
@@ -470,7 +467,7 @@
                     </td>
                 </tr>
                 <tr class="tr">
-                    <td> <input type="checkbox"> </td>
+                    <td> <input type="checkbox" id="telephone-no-checkbox"> </td>
                     <td>
                         <b> <i>*</i> 11. Telephone No.</b> <br>
                         (Country code is compulsory)
@@ -583,7 +580,7 @@
                             <option value="255">UNITED REPUBLIC OF TANZANIA (255)</option>
                             <option value="B1">UNITED STATES (1)</option>
                             <option value="598">URUGUAY (598)</option>
-                            <option value="84">VIET NAM (84)</option>
+                            <option value="84">VIETNAM (84)</option>
                             <option value="967">YEMEN (967)</option>
                             <option value="260">ZAMBIA (260)</option>
                             <option value="263">ZIMBABWE (263)</option>
@@ -594,10 +591,10 @@
                             <tr>
                                 <td style="border: 1px solid #808080; border-collapse: collapse;">
 
-                                    <input type="radio"> Mobile No.
+                                    <input type="radio" id="mobile-no-radio"> Mobile No.
                                 </td>
                                 <td style="border: 1px solid #808080; border-collapse: collapse;">
-                                    <input type="radio"> Telephone No.
+                                    <input type="radio" id="telephone-no-radio"> Telephone No.
                                 </td>
                             </tr>
                             <tr>
@@ -605,12 +602,12 @@
 
                                     Area/STD Code
                                     <br>
-                                    <input type="text" size="10">
+                                    <input type="text" size="10" id="area-std-code-input">
                                 </td>
                                 <td style="border: 1px solid #808080; border-collapse: collapse;">
                                     Telephone No./Mobile No.
                                     <br>
-                                    <input type="text" size="10">
+                                    <input type="text" size="10" id="telephone-no-input">
                                 </td>
                             </tr>
                         </table>
@@ -620,15 +617,15 @@
                     <td>&nbsp;</td>
                     <td><b>E-mail ID</b></td>
                     <td>
-                        <input type="text" size="34">
+                        <input type="text" size="34" id="email-id-input">
                     </td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td>In case of a citizen of India, then</td>
                     <td>
-                        <input type="radio"> AADHAAR &nbsp;&nbsp;
-                        <input type="radio"> EID
+                        <input type="radio" id="aadhaar-radio"> AADHAAR &nbsp;&nbsp;
+                        <input type="radio" id="eid-radio"> EID
                     </td>
                 </tr>
                 <tr class="tr">
@@ -641,7 +638,7 @@
                         </b>
                     </td>
                     <td colspan="2">
-                        <input type="text" size="13">
+                        <input type="text" size="13" id="aadhaar-number-input">
                         <br>
                         <b class="text__color2">
                             In case AADHAAR number is provided,
@@ -660,7 +657,7 @@
                     </td>
                     <td colspan="2">
                         <br>
-                        <input type="text" size="40">
+                        <input type="text" size="40" id="aadhaar-name-input">
                         <br>
                     </td>
                 </tr>
@@ -668,7 +665,7 @@
                     <td>&nbsp;</td>
                     <td><b> 13. GSTN</b></td>
                     <td colspan="2">
-                        <input type="text" maxlength="15">
+                        <input type="text" maxlength="15" id="gstn-input">
                     </td>
                 </tr>
                 <tr class="tr">
@@ -683,22 +680,22 @@
                     <td>&nbsp;</td>
                     <td colspan="1">
                         <b>PAN1</b>
-                        <input type="text">
+                        <input type="text" id="pan1-input">
                     </td>
                     <td>
                         <b>PAN2</b>
-                        <input type="text">
+                        <input type="text" id="pan2-input">
                     </td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td colspan="1">
                         <b>PAN3</b>
-                        <input type="text">
+                        <input type="text" id="pan3-input">
                     </td>
                     <td>
                         <b>PAN4</b>
-                        <input type="text">
+                        <input type="text" id="pan4-input">
                     </td>
                 </tr>
                 <tr class="tr">
@@ -708,7 +705,7 @@
                 <tr class="tr">
                     <td>&nbsp;</td>
                     <td colspan="2"> I/We
-                        <input type="text" size="74">
+                        <input type="text" size="74" id="verification-input">
                         ,the applicant,in the capacity of
                         <select>
                             <option value="">-- Please Select --</option>
@@ -717,13 +714,13 @@
                         </select>
                         do hereby declare
                         that what is stated above is true to the best of my information and belief. <br>
-                        I have enclosed <input type="text" size="6">
+                        I have enclosed <input type="text" size="6" id="enclosed-input">
                         (number of documents) in support of proposed changes/corrections.
                     </td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
-                    <td colspan="3"> Place <input type="text" size="34"> </td>
+                    <td colspan="3"> Place <input type="text" size="34" id="place-input"> </td>
                 </tr>
                 <tr class="tr">
                     <td>&nbsp;</td>
@@ -735,7 +732,7 @@
                             </tr>
                             <tr>
                                 <td>Verified today, the </td>
-                                <td> <input type="date"> </td>
+                                <td> <input type="date" id="verified-today-input"> </td>
                             </tr>
                         </table>
                     </td>
@@ -744,7 +741,7 @@
                     <td>&nbsp;</td>
                     <td colspan="2">
                         I/We have enclosed <br>
-                        <select>
+                        <select id="enclosed-select">
                             <option>-- Please Select --</option>
                             <option>Copy of passport</option>
                             <option>Copy of
@@ -757,7 +754,7 @@
                                 registered in India</option>
                         </select>
                         as proof of identity,
-                        <select>
+                        <select id="proof-of-identity-select">
 
                             <option>-- Please select --</option>
                             <option>Copy of passport</option>
@@ -782,7 +779,7 @@
 
                         as proof of address,
 
-                        <select>
+                        <select id="proof-of-address-select">
                             <option>-- Please select --</option>
                             <option>Copy of Birth certificate issued by the Municipal Authority or any
                                 office authorised to issue Birth and Death Certificate by the Registrar of Birth and
@@ -805,7 +802,7 @@
                             <option>Copy of Mark sheet of recognised board</option>
                         </select>
                         as proof of date <br> of birth and
-                        <select>
+                        <select id="proof-of-date-of-birth-select">
                             <option>--Please Select--
                             </option>
                             <option> Copy of PAN card
@@ -822,9 +819,9 @@
                     <td>&nbsp;</td>
                     <td colspan="3" style="border:0">
                         <b> Whether you wish to have?</b>&nbsp;&nbsp;
-                        <input type="radio" checked>
+                        <input type="radio" id="physical-pan-card-radio" checked>
                         Physical PAN Card & e-PAN Card
-                        <input type="radio">
+                        <input type="radio" id="only-e-pan-card-radio">
                         Only e-PAN Card
                         &nbsp;&nbsp;
                         <a class="nav__u"> Fees Applicable</a>
@@ -855,7 +852,7 @@
                     </td>
                 </tr>
                 <tr class="tr">
-                    <td><input type="radio"></td>
+                    <td><input type="radio" id="online-payment-radio"></td>
                     <td colspan="2">
                         <b> Online Payment</b>
                     </td>
@@ -864,7 +861,7 @@
             <table>
                 <tr>
                     For Paperless PAN Application:
-                    <input type="radio" checked> Yes &nbsp; <input type="radio"> No <br>
+                    <input type="radio" id="yes-radio" checked> Yes &nbsp; <input type="radio" id="no-radio"> No <br>
                     <input type="radio" checked> DSC
                     <select style="width: 15%">
                         <option value="select">--Select--</option>
@@ -877,14 +874,14 @@
                 </tr>
                 <tr>
                     <td>Upload Photo</td>
-                    <td><input type="file"></td>
+                    <td><input type="file" id="photo-input" accept="image/*"></td>
                     <td>Upload Signature</td>
-                    <td><input type="file"></td>
+                    <td><input type="file" id="signature-input" accept="image/*"></td>
                     <td rowspan="2">OR</td>
                 </tr>
                 <tr>
                     <td>Upload Document</td>
-                    <td><input type="file"></td>
+                    <td><input type="file" id="document-input" accept="image/*"></td>
                 </tr>
                 <tr>
                     <td colspan="3">
