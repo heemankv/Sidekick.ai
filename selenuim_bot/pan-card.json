@@ -1,0 +1,294 @@
+{
+  "Personal Details" : {
+    "How do you want to submit your PAN application documents?" : {
+      "type" : "Multiple Choice Single Answer",
+      "Options" : [
+        "Submit digitally through e-KYC & e-Sign (Paperless)",
+        "Submit scanned images through e-Sign",
+        "Forward application documents physically"
+      ]
+    },
+    "Whether Physical PAN Card is required?" : {
+      "type" : "Multiple Choice Single Answer",
+      "Options" : [
+        "Yes",
+        "No"
+      ]
+    },
+    "Adhaar Number" : {
+      "type" : "Input Field",
+      "hint" : "Enter Aadhaar last four digits."
+    },
+    "Name as per Aadhaar" : {
+      "type" : "Input Field"
+    },
+    "Full Name of the Applicant" : {
+      "Title" : {
+        "type" : "Multiple Choice Single Answer",
+        "Options" : [
+          "Shri", "Smt", "Kumari"
+        ]
+      },
+      "Last Name / Surname" : {
+        "type" : "Input Field"
+      },
+      "First Name" : {
+        "type" : "Input Field"
+      },
+      "Middle Name" : {
+        "type" : "Input Field"
+      },
+      "Name that you would like printed on PAN card?" : {
+        "type" : "Input Field"
+      },
+      "Date of Birth" : {
+        "type" : "Input Field"
+      },
+      "Gender (Only for individual)" : {
+        "type" : "Input Field"
+      }
+    },
+    "Have you ever been known by any other name?" : {
+      "type" : "Multiple Choice Single Answer",
+      "Options" : [
+        "Yes",
+        "No"
+      ]
+    },
+    "Details of Parents" : {
+      "Whether mother is a single parent and you wish to apply for PAN by furnishing the name of your mother only ?" : {
+        "hint" : "If yes, please fill in mother's name in the appropriate space provided below.",
+        "Options" : [
+          "Yes",
+          "No"
+        ]
+      },
+      "Father's Name" : {
+        "hint" : "Even married women should fill in father's name only",
+        "Father's Last Name / Surname" : {
+          "type" : "Input Field"
+        },
+        "Father's Last Name" : {
+          "type" : "Input Field"
+        },
+        "Father's Middle Name" : {
+          "type" : "Input Field"
+        }
+      },
+      "Mother's Name" : {
+        "Optional field" : "Yes",
+        "Mother's Last Name / Surname" : {
+          "type" : "Input Field"
+        },
+        "Mother's Last Name" : {
+          "type" : "Input Field"
+        },
+        "Mother's Middle Name" : {
+          "type" : "Input Field"
+        }
+      },
+      "Parents name to be printed on the PAN Card" : {
+        "type" : "Multiple Choice Single Answer",
+        "Options" : [
+          "Yes",
+          "No"
+        ]
+      } 
+    } 
+  },
+
+  "Contact and Other Details" : {
+    "Source of Income" : {
+      "hint" : "Please tick as applicable",
+      "Options" : [
+        "Salary", 
+        "Income from Business / Profession",
+        "Income from House property",
+        "Income from Other sources",
+        "Capital Gains",
+        "No income"
+      ],
+      "Extension" : {
+        "Income from Business / Profession" : {
+          "Select Business/Profession code" : 
+          [
+            "Select Business/Profession code",
+            "Architecture",
+            "Builders and Developers",
+            "Chartered Accountant / Accountancy",
+            "Cinema Halls and Other Theaters",
+            "Company Secretary",
+            "Engineering",
+            "Films, TV and such other entertainment",
+            "Government Contractors",
+            "Information Technology",
+            "Insurance Agency",
+            "Interior Decoration",
+            "Legal Practitioner and Solicitors",
+            "Medical Profession and Business",
+            "Members of Stock Exchange and Share Brokers and Sub-brokers",
+            "Operations of Ship, Hovercraft, Aircrafts or Helicopters",
+            "Others",
+            "Ownership of Horses or Jockeys",
+            "Performing Arts and Yatra",
+            "Plying Taxis, Lorries, Trucks, Buses or other Commercial Vehicles",
+            "Technical Consultancy"
+          ]
+        }
+      } 
+    },
+    "Address for communication" : {
+      "hint" : "Important instructions for paperless PAN application through e-KYC:  1. The address used in Aadhaar card would be used in PAN application as residence address and no need to fill residential address. 2. PAN card will be dispatched at address mentioned in Aadhaar. 3. If length of address as per Aadhaar database exceeds the length as specified by Income Tax Department then you will not be able to avail e-KYC service.",
+      "Options" : ["Residence", "Office"]
+    },
+    "Residence Address" : {
+      "Flat / Room / Door / Block No." : {
+        "type" : "Input Field"
+      },
+      "Name of Premises/Building/Village" : {
+        "type" : "Input Field"
+      },
+      "Area/Locality/Taluka/Sub-Division" : {
+        "type" : "Input Field"
+      },
+      "Road/Street/Lane/Post Office" : {
+        "type" : "Input Field"
+      },
+      "Town/City/District" : {
+        "type" : "Input Field"
+      },
+      "Country Name" : {
+        "type" : "Input Field"
+      },
+      "State/Union Territory" : {
+        "type" : "Input Field"
+      },
+      "Pin Code" : {
+        "type" : "Input Field"
+      },
+      "Zip Code" : {
+        "type" : "Input Field"
+      }
+    },
+    "Office Address" : {
+      "Name of Office" : {
+        "type" : "Input Field"
+      },
+      "Flat / Room / Door / Block No." : {
+        "type" : "Input Field"
+      },
+      "Name of Premises/Building/Village" : {
+        "type" : "Input Field"
+      },
+      "Area/Locality/Taluka/Sub-Division" : {
+        "type" : "Input Field"
+      },
+      "Road/Street/Lane/Post Office" : {
+        "type" : "Input Field"
+      },
+      "Town/City/District" : {
+        "type" : "Input Field"
+      },
+      "Country Name" : {
+        "type" : "Input Field"
+      },
+      "State/Union Territory" : {
+        "type" : "Input Field"
+      },
+      "Pin Code" : {
+        "type" : "Input Field"
+      },
+      "Zip Code" : {
+        "type" : "Input Field"
+      }
+    },
+    "Telephone Number & Email ID details" : {
+      "Country code (ISD code)" : {
+        "type" :"Input Field"
+      },
+      "Area / STD Code" : {
+        "type" :"Input Field"
+      },
+      "Telephone / Mobile Number" : {
+        "type" :"Input Field"
+      },
+      "Email Id" : {
+        "type" :"Input Field"
+      }
+    },
+    "Representative Assessee" : {
+      "type" : "Multiple Choice Single Answer",
+      "Options" : [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  "AO Code" : {
+    "Area code" : {
+      "type" :"Input Field"
+    },
+    "Range code" : {
+      "type" :"Input Field"
+    },
+    "AO Type" : {
+      "type" :"Input Field"
+    },
+    "AO Number" : {
+      "type" :"Input Field"
+    }    
+  },
+  "Document Details" : {
+    "Documents submitted as:,  and Proof of Date of Birth (DOB)" : {
+      "Proof of Identity (POI)" : {
+        "type": "Multiple Choice Single Answer",
+        "Options": [
+          "AADHAAR Card issued by the Unique Identification Authority of India",
+          "Driving License"
+        ]
+      },
+      "Proof of Address (POA)" : {
+        "type": "Multiple Choice Single Answer",
+        "Options": [
+          "AADHAAR Card issued by the Unique Identification Authority of India",
+          "Driving License"
+        ]
+      },
+      "Proof of Date of Birth (DOB)" : {
+        "type": "Multiple Choice Single Answer",
+        "Options": [
+          "AADHAAR Card issued by the Unique Identification Authority of India",
+          "Driving License"
+        ]
+      }
+    },
+    "Declaration" : {
+      "type": "Input Field",
+      "sentence": "I/We <<<name>>>, the applicant, in the capacity of <<<representation>>> do hereby declare that what is stated above is true to the best of my/our information and belief.",
+      "input" : {
+        "name" : {
+          "type" :"Input Field"
+        },
+        "representation" : {
+          "type" :"Multiple Choice Single Answer",
+          "Options" : ["Himself/Herself", "Representative Assessee"]
+        }
+      },
+      "Place" : {
+        "type" :"Input Field"
+      },
+      "Date" : {
+        "type" :"Input Field"
+      }
+    },
+    "Upload Photo" : {
+      "format": "JPEG, 200 DPI, Color and Dimension should be 3.5X2.5 cms,Max File size 50kb"
+    },
+    "Upload Signature" : {
+      "format": "JPEG, 200 DPI, Color and Dimension should be 2X4.5 cms, Max File size 50kb."
+    },
+    "Upload Supporting Documents" : {
+      "format" : "PDF, Max size of per page 300kb"
+    }
+  }
+}
