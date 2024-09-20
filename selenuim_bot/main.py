@@ -67,7 +67,7 @@ def fill(json : dict, driver: webdriver.Chrome) :
     fill_input_field(driver, "country-select", json["country"])
 
     # Contact details 
-    if json["telephone-no-checkbox"]:
+    if "telephone-no-checkbox" in json.keys() :
         fill_checkbox(driver, "telephone-no-checkbox")
     
     fill_option_field(driver, "country-code", json["country-code"])
@@ -130,7 +130,7 @@ def main() :
             
             "country-code" : "91",
             "email-id" : "rajeshkumar@gmail.com",
-
+            "mobile-no-radio" : "mobile-no-radio",
             "aadhaar-radio" : "aadhaar-radio",
             "aadhaar-number-input" : "123456789012",
             "aadhaar-name-input" : "Rajesh Kumar",

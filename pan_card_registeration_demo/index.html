@@ -22,10 +22,77 @@
   gtag('js', new Date());
 
 </script>
+
+
+<script>
+function submitForm() {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Collect form data
+    const formData = {
+        indianCitizen: document.getElementById('indian-citizen-yes').checked ? 'Yes' : 'No',
+        lastName: document.getElementById('last-name').value,
+        firstName: document.getElementById('first-name').value,
+        middleName: document.getElementById('middle-name').value,
+        fullName: document.getElementById('full-name').value,
+        fatherLastName: document.getElementById('father-last-name').value,
+        fatherFirstName: document.getElementById('father-first-name').value,
+        fatherMiddleName: document.getElementById('father-middle-name').value,
+        motherLastName: document.getElementById('mother-last-name').value,
+        motherFirstName: document.getElementById('mother-first-name').value,
+        motherMiddleName: document.getElementById('mother-middle-name').value,
+        dateOfBirth: `${document.getElementById('date-input').value}/${document.getElementById('month-input').value}/${document.getElementById('year-input').value}`,
+        gender: document.getElementById('male-radio').checked ? 'Male' : (document.getElementById('female-radio').checked ? 'Female' : 'TransGender'),
+        addressType: document.getElementById('residential-radio').checked ? 'Residential' : 'Office',
+        officeName: document.getElementById('office-name').value,
+        flatDoorBlockNo: document.getElementById('flat-door-block-no').value,
+        nameOfPremises: document.getElementById('name-of-premises').value,
+        roadStreetLanePostOffice: document.getElementById('road-street-lane-post-office').value,
+        areaLocalityTalukaSubDivision: document.getElementById('area-locality-taluka-sub-division').value,
+        townCityDistrict: document.getElementById('town-city-district').value,
+        stateUnionTerritory: document.getElementById('state-union-territory').value,
+        pin: document.getElementById('pin-input').value,
+        country: document.getElementById('country-select').value,
+        emailId: document.getElementById('email-id-input').value,
+        aadhaarNumber: document.getElementById('aadhaar-number-input').value,
+        aadhaarName: document.getElementById('aadhaar-name-input').value,
+        gstn: document.getElementById('gstn-input').value,
+        // Add more fields as needed
+    };
+
+    // Log the form data (you can replace this with your own logic to submit the data)
+    console.log('Form Data:', formData);
+    return UUID.v4();
+
+    // You can add your own logic here to submit the form data to a server
+    // For example, using fetch API:
+    /*
+    fetch('/submit-form', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+    */
+
+    // Optionally, you can show a success message to the user
+    // alert('Form submitted successfully!');
+}
+</script>
+
+
 </head>
 
 <body>
-    <form>
+    <form onSubmit="submitForm()">
         <table id="table">
 
             <tbody>
