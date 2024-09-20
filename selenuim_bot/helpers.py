@@ -14,7 +14,7 @@ def fill_option_field(driver, id, value) :
     option_field = driver.find_element(By.ID, id)
     option_field.send_keys(value)
 
-def fill_checkbox(driver, id, value) :
+def fill_checkbox(driver, id) :
     checkbox = driver.find_element(By.ID, id)
     checkbox.click()
 
