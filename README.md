@@ -2,7 +2,18 @@
 
 ![arch](./docs/image.png)
 
-## System Components
+## Index 📄
+
+- [sidekick.ai](#sidekickai)
+  - [Index 📄](#index-)
+  - [System Components ⚙️](#system-components-️)
+  - [Process Flow 🌊](#process-flow-)
+  - [Key Benefits 🎁](#key-benefits-)
+  - [Targetting Bounties 🏆](#targetting-bounties-)
+  - [Deployed Contracts (MINA 🟠)](#deployed-contracts-mina-)
+  - [DA Config (AVAIL 🔵)](#da-config-avail-)
+
+## System Components ⚙️
 
 1. **LLM Integration**
 
@@ -28,7 +39,7 @@
    - System is tamper-proof due to blockchain integration
    - LLM verifiability achieved by checking final hashed values during form submission
 
-## Process Flow
+## Process Flow 🌊
 
 1. LLM fills the form on the government website using Selenium
 2. User reviews the filled form and decides on data revelation
@@ -39,7 +50,7 @@
    - Revealed data becomes available for future form filling
 6. Final hashed values are verified during form submission, ensuring LLM accuracy
 
-## Key Benefits
+## Key Benefits 🎁
 
 - Automated form filling with LLM intelligence
 - Blockchain-based verification for enhanced security
@@ -48,14 +59,20 @@
 - Tamper-proof system architecture
 - Simple LLM verification process
 
-## Deployed Contracts
+## Targetting Bounties 🏆
+
+- **Worldcoin** : Best Public Goods Use Case
+- **Gaia** : Build a Public Good Integration with web3 AI
+- **Mina** :Best Mina application or library built using Protokit
+
+## Deployed Contracts (MINA 🟠)
 
 - `Form Verifier` : B62qknETsYf9pg25H23w47QPHNbHUY4mEk7vT4xF7zBjbSSmEa1Wgq2
 - `Contract deploy transaction` : 5JtwW6tezWbJZMMsGRGenNPGWqYrKmn6bPSXsBWJpXnWDFBXzrsg
 - `Form Verification Txn (TEST)` : 5JuCiLto3cRgmCQ2V8j5swHMANtBWj5XJuwtMLBFqk6CsPcJnE8F
 - `Form Verification Fetch result (TEST)` : 5Juzuqgrn5AMxTTXHdSKiND1kR2SExSXK5vqf9skwnqeNcuuZuQS
 
-## DA Config
+## DA Config (AVAIL 🔵)
 
 - `Avail Account Public Key` : 5EcPiksgkARM1c5YxnZ6uuHHSnZ2VEBFqkY8tktGK1jV7cut
 
