@@ -8,7 +8,7 @@ class CreateUserRequest(BaseModel):
 
 
 class BaseLLMInputData(BaseModel):
-    user_id: UUID
+    user_id: str
     prompt_type: str
     prompt: str
 
@@ -17,3 +17,4 @@ class UserModel(BaseModel):
     user_id: str
     world_coin_id: str
     value: Optional[Dict] = None
+    prompt_response: Optional[Dict] = {}

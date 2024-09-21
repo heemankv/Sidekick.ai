@@ -10,7 +10,7 @@ class Pinecone:
     def __init__(self):
         self.api_key = API_KEY
         self.env = ENVIRONMENT
-        self.client = pinecone.init(api_key=self.api_key, environment=self.env)
+        # self.client = pinecone.init(api_key=self.api_key, environment=self.env)
         self.idx = self.client.Index(INDEX_NAME)
 
     def insert_data(self, id, vector, datatype: str):

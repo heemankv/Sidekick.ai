@@ -49,9 +49,4 @@ class ChatCompletion:
             model=self.model,
             messages=prompt
         )
-        return response
-
-
-if __name__ == '__main__':
-    client = ChatCompletion()
-    print(client.query_completion(ADDRESS_PROMPT))
+        return response.choices[0].message.content

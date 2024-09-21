@@ -5,17 +5,42 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import useAutoResizeTextArea from "../hooks/useAutoResizeTextArea";
 import Message from "./Message";
 import { DEFAULT_OPENAI_MODEL } from "../shared/Constants";
+import { useSession } from "next-auth/react";
+import {sendPrompt, sendSubmission, sendUserID} from "../utils/helpers";
+
+
+
+function getMessageForLevel(conversationLevel: String): String {
+  if (conversationLevel === "profile") {
+    return "Please share your personal info like Name, DOB, Email, phone";
+  } else if (conversationLevel === "family") {
+    return "Please share your family info like Father's Name, Mother's Name, Siblings, etc.";
+  } else if (conversationLevel === "address") {
+    return "Please share your address info like Address, City, State, etc.";
+  } else if (conversationLevel === "profession") {
+    return "Please share your profession info like Education, Work Experience, etc.";
+  }
+  return "";
+}
 
 const Chat = () => {
   const toggleComponentVisibility = true;
-
+  const InitiatliseChat = "Hello! I'm Sidekick.ai, your personal AI form filling assistant. I can help you fill out forms, answer questions, and more. \n Let's start. Please share your personal info like Name, DOB, Email, phone"
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [showEmptyChat, setShowEmptyChat] = useState(true);
-  const [conversation, setConversation] = useState<any[]>([]);
+  const [showEmptyChat, setShowEmptyChat] = useState(false);
+  const [conversation, setConversation] = useState<any[]>([ { content: InitiatliseChat, role: "system" }]);
   const [message, setMessage] = useState("");
   const textAreaRef = useAutoResizeTextArea();
   const bottomOfChatRef = useRef<HTMLDivElement>(null);
+
+  // 0 -> set profile
+  // 1 -> set family
+  // 2 -> set address
+  // 3 -> set credentials
+  const [conversationLevel, setConversationLevel] = useState("profile");
+
+  const { data: session, status } = useSession()
 
   const selectedModel = DEFAULT_OPENAI_MODEL;
 
@@ -25,6 +50,11 @@ const Chat = () => {
       textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
     }
   }, [message, textAreaRef]);
+
+
+  useEffect(() => {
+    sendUserID(session?.user?.name?.toString() ?? "")
+  }, [session])
 
   useEffect(() => {
     if (bottomOfChatRef.current) {
@@ -46,10 +76,9 @@ const Chat = () => {
     setIsLoading(true);
 
     // Add the message to the conversation
-    setConversation([
-      ...conversation,
+    setConversation((prevValue: any) => [
+      ...prevValue,
       { content: message, role: "user" },
-      { content: null, role: "system" },
     ]);
 
     // Clear the message & remove empty chat
@@ -57,32 +86,48 @@ const Chat = () => {
     setShowEmptyChat(false);
 
     try {
-      const response = await fetch(`/api/openai`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          messages: [...conversation, { content: message, role: "user" }],
-          model: selectedModel,
-        }),
-      });
 
-      if (response.ok) {
-        const data = await response.json();
+      let response = await sendPrompt(
+          session?.user?.name?.toString() ?? "",
+          conversationLevel,
+          message);
 
-        // Add the message to the conversation
-        setConversation([
-          ...conversation,
-          { content: message, role: "user" },
-          { content: data.message, role: "system" },
+      if (response !== undefined) {
+        setConversation((prevValue: any) => [
+          ...prevValue,
+          { content: response.message, role: "system" },
         ]);
+
+        if(conversationLevel == "profession") {
+          let response = await sendSubmission(session?.user?.name?.toString() ?? "");
+          console.log(response, "form submitteddd ");
+        }
+
       } else {
         console.error(response);
-        setErrorMessage(response.statusText);
       }
 
-      setIsLoading(false);
+    if (conversationLevel === "profile") {
+      setConversationLevel("family");
+      setConversation((prevValue: any) => [
+        ...prevValue,
+        { content: getMessageForLevel("family"), role: "system" },
+      ]);
+    } else if (conversationLevel === "family") {
+      setConversationLevel("address");
+      setConversation((prevValue: any) => [
+        ...prevValue,
+        { content: getMessageForLevel("address"), role: "system" },
+      ]);
+    } else if (conversationLevel === "address") {
+      setConversationLevel("profession");
+      setConversation((prevValue: any) => [
+        ...prevValue,
+        { content: getMessageForLevel("profession"), role: "system" },
+      ]);
+    }
+
+    setIsLoading(false);
     } catch (error: any) {
       console.error(error);
       setErrorMessage(error.message);

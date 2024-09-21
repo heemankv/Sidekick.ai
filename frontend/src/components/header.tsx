@@ -9,7 +9,7 @@ export default function Header() {
   const loading = status === "loading"
 
   return (
-    <header>
+    <header className="bg-white mx-6 border rounded-md">
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
