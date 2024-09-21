@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "deployAliases": {
+    "sidekick-zk": {
+      "networkId": "testnet",
+      "url": "https://api.minascan.io/node/devnet/v1/graphql",
+      "keyPath": "keys/sidekick-zk.json",
+      "feepayerKeyPath": "/Users/ocdbytes/.cache/zkapp-cli/keys/test-account.json",
+      "feepayerAlias": "test-account",
+      "fee": "1"
+    }
+  }
+}
