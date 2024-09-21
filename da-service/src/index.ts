@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
 import { InMemoryStorage } from "./storage";
 import { getDataFromAvail, storeDataToAvail } from "./utils";
-import { Field, MerkleMap, MerkleMapWitness } from "o1js";
 import { PORT } from "./constants";
 
 const app = express();

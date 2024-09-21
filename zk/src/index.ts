@@ -180,7 +180,7 @@ async function logEvents(formVerifier: FormVerifier) {
   });
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// main().catch((err) => {
+//   console.error(err);
+//   process.exit(1);
+// });
