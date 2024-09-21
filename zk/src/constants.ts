@@ -7,3 +7,4 @@ export const ZK_APP_PRIVATE_KEY =
 export const ZK_APP_PUBLIC_KEY =
   "B62qnUxCF9JrZHF2o9hgfRwu5vUkK5KTw8fkNQAq9q2k66an49Y7w6Q";
 export const GRAPH_QL_RPC = "https://api.minascan.io/node/devnet/v1/graphql";
+export const SERVER_PORT = 3001;

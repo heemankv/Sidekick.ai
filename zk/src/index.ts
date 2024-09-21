@@ -94,7 +94,7 @@ async function setExpectedValues(
   console.log("Expected values set");
 }
 
-function createFormInput(
+export function createFormInput(
   llmQuestionsHash: string,
   userInputsHash: string,
   llmResponsesHash: string,
@@ -158,17 +158,18 @@ async function processForm(
   return map;
 }
 
-async function executeTransaction(
+export async function executeTransaction(
   deployerAccount: PublicKey,
   deployerKey: PrivateKey,
   transactionFunction: () => Promise<void>
-) {
+): Promise<string> {
   const transaction = await Mina.transaction(
     deployerAccount,
     transactionFunction
   );
   await transaction.prove();
-  await transaction.sign([deployerKey]).send();
+  let res = await transaction.sign([deployerKey]).send();
+  return res.hash;
 }
 
 async function logEvents(formVerifier: FormVerifier) {
