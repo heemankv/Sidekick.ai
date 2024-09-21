@@ -124,6 +124,10 @@ def run_selenium_bot(json: dict) :
 #     main()
 
 
+@app.get("/redirectHere")
+async def root():
+    return {"message": "Redirecting to the website"}
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}

@@ -1,3 +1,5 @@
+document.getElementById('login').addEventListener('click', authenticate);
+
 $(document).ready(function() {
     const messagesContainer = $('#messages');
     const userInput = $('#userInput');
