@@ -99,7 +99,7 @@ const Chat = () => {
         ]);
 
         if(conversationLevel == "profession") {
-          let response = await sendSubmission();
+          let response = await sendSubmission(session?.user?.name?.toString() ?? "");
           console.log(response, "form submitteddd ");
         }
 

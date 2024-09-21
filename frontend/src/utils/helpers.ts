@@ -48,9 +48,9 @@ async function sendPrompt( user_id : String, prompt_type: String, prompt: String
 
 // curl --location 'localhost:8000//post-form'
 
-async function sendSubmission() : Promise<String> {
+async function sendSubmission(user_id : String) : Promise<String> {
 
-  const response = await fetch(`${backendURL}/post-form`, {
+  const response = await fetch(`${backendURL}/post-form?user_id=${user_id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
