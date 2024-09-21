@@ -8,7 +8,7 @@ class CreateUserRequest(BaseModel):
 
 
 class BaseLLMInputData(BaseModel):
-    user_id: UUID
+    user_id: str
     prompt_type: str
     prompt: str
 

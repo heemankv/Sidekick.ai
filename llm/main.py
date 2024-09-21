@@ -3,6 +3,7 @@ import json
 
 import uvicorn
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from starlette.requests import Request
 from mongo.mongodb import get_mongo_client, get_mongo_db, get_mongo_collection
 
@@ -11,6 +12,7 @@ from llm.sidekickai.recommender import SidekickAI
 from llm.structs import CreateUserRequest, BaseLLMInputData, UserModel
 
 app = FastAPI()
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 sidekick_ai = SidekickAI()
 
 
@@ -21,7 +23,7 @@ async def root(request: Request):
 
 @app.post("/user")
 async def create_user(request: CreateUserRequest):
-    user = UserModel(user_id=uuid.uuid4().__str__(), world_coin_id=request.world_coin_id, value={})
+    user = UserModel(user_id=request.world_coin_id, world_coin_id=request.world_coin_id, value={})
     print(user)
     resp = get_mongo_collection().insert_one(user.dict())
     print(resp)

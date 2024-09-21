@@ -6,15 +6,15 @@ import useAutoResizeTextArea from "../hooks/useAutoResizeTextArea";
 import Message from "./Message";
 import { DEFAULT_OPENAI_MODEL } from "../shared/Constants";
 import { useSession } from "next-auth/react";
-import { sendUserID } from "../utils/helpers";
+import {sendPrompt, sendUserID} from "../utils/helpers";
 
 const Chat = () => {
   const toggleComponentVisibility = true;
-
+  const InitiatliseChat = "Hello! I'm Sidekick.ai, your personal AI form filling assistant. I can help you fill out forms, answer questions, and more. \n Let's start. Please share your personal info like Name, DOB, Email, phone"
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [showEmptyChat, setShowEmptyChat] = useState(true);
-  const [conversation, setConversation] = useState<any[]>([]);
+  const [showEmptyChat, setShowEmptyChat] = useState(false);
+  const [conversation, setConversation] = useState<any[]>([ { content: InitiatliseChat, role: "system" }]);
   const [message, setMessage] = useState("");
   const textAreaRef = useAutoResizeTextArea();
   const bottomOfChatRef = useRef<HTMLDivElement>(null);
@@ -66,29 +66,22 @@ const Chat = () => {
     setShowEmptyChat(false);
 
     try {
-      const response = await fetch(`/api/openai`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          messages: [...conversation, { content: message, role: "user" }],
-          model: selectedModel,
-        }),
-      });
 
-      if (response.ok) {
-        const data = await response.json();
+      let response = await sendPrompt(
+          session?.user?.name?.toString() ?? "",
+          "profile",
+          message);
 
-        // Add the message to the conversation
+      console.log(response," responseresponseresponse");
+
+      if (response !== undefined) {
         setConversation([
           ...conversation,
           { content: message, role: "user" },
-          { content: data.message, role: "system" },
+          { content: response.message, role: "system" },
         ]);
       } else {
         console.error(response);
-        setErrorMessage(response.statusText);
       }
 
       setIsLoading(false);
@@ -99,6 +92,8 @@ const Chat = () => {
       setIsLoading(false);
     }
   };
+
+  console.log(conversation," sdkjbskdbhvbj ksdbkvsd");
 
   const handleKeypress = (e: any) => {
     // It's triggers by pressing the enter key
