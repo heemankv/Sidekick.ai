@@ -145,8 +145,8 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex max-w-full flex-1 flex-col">
-      <div className="sticky top-0 z-10 flex items-center border-b border-white/20 bg-gray-800 pl-1 pt-1 text-gray-200 sm:pl-3 md:hidden">
+    <div className="h-[calc(100vh-70px)] flex max-w-full flex-1 flex-col">
+      <div className="sticky top-0 z-10 flex items-center border-b border-white/20 bg-[#171717] pl-1 pt-1 text-gray-200 sm:pl-3 md:hidden">
         <h1 className="flex-1 text-center text-base font-normal">New chat</h1>
         <button type="button" className="px-3">
           <BsPlusLg className="h-6 w-6" />
@@ -154,13 +154,11 @@ const Chat = () => {
       </div>
       <div className="relative h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1">
         <div className="flex-1 overflow-hidden">
-          <div className="react-scroll-to-bottom--css-ikyem-79elbk h-full dark:bg-gray-800">
+          <div className="react-scroll-to-bottom--css-ikyem-79elbk h-full dark:bg-[#171717]">
             <div className="react-scroll-to-bottom--css-ikyem-1n7m0yu">
               {!showEmptyChat && conversation.length > 0 ? (
-                <div className="flex flex-col items-center text-sm bg-gray-800">
-                  <div className="flex w-full items-center justify-center gap-1 border-b border-black/10 bg-gray-50 p-3 text-gray-500 dark:border-gray-900/50 dark:bg-gray-700 dark:text-gray-300">
-                    Model: {selectedModel.name}
-                  </div>
+                <div className="flex flex-col items-center text-sm bg-[#171717]">
+                  
                   {conversation.map((message, index) => (
                     <Message key={index} message={message} />
                   ))}
@@ -173,7 +171,7 @@ const Chat = () => {
                   <div className="flex items-center justify-center gap-2">
                     {/* <div className="relative w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
                       <button
-                        className="relative flex w-full cursor-default flex-col rounded-md border border-black/10 bg-white py-2 pl-3 pr-10 text-left focus:border-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:border-white/20 dark:bg-gray-800 sm:text-sm align-center"
+                        className="relative flex w-full cursor-default flex-col rounded-md border border-black/10 bg-white py-2 pl-3 pr-10 text-left focus:border-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:border-white/20 dark:bg-[#171717] sm:text-sm align-center"
                         id="headlessui-listbox-button-:r0:"
                         type="button"
                         aria-haspopup="true"
@@ -204,11 +202,11 @@ const Chat = () => {
                   </h1>
                 </div>
               ) : null}
-              <div className="flex flex-col items-center text-sm dark:bg-gray-800"></div>
+              <div className="flex flex-col items-center text-sm dark:bg-[#171717]"></div>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full border-t md:border-t-0 dark:border-white/20 md:border-transparent md:dark:border-transparent md:bg-vert-light-gradient bg-white dark:bg-gray-800 md:!bg-transparent dark:md:bg-vert-dark-gradient pt-2">
+        <div className="absolute bottom-0 left-0 w-full border-t md:border-t-0 dark:border-white/20 md:border-transparent md:dark:border-transparent md:bg-vert-light-gradient bg-white dark:bg-[#171717] md:!bg-transparent dark:md:bg-vert-dark-gradient pt-2">
           <form className="stretch mx-2 flex flex-row gap-3 last:mb-2 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-2xl xl:max-w-3xl">
             <div className="relative flex flex-col h-full flex-1 items-stretch md:flex-col">
               {errorMessage ? (
@@ -238,7 +236,7 @@ const Chat = () => {
                 <button
                   disabled={isLoading || message?.length === 0}
                   onClick={sendMessage}
-                  className="absolute p-1 rounded-md bottom-1.5 md:bottom-2.5 bg-transparent disabled:bg-gray-500 right-1 md:right-2 disabled:opacity-40"
+                  className="absolute p-1 rounded-md bottom-1.5 md:bottom-2.5 bg-transparent disabled:bg-[#202020]0 right-1 md:right-2 disabled:opacity-40"
                 >
                   <FiSend className="h-4 w-4 mr-1 text-white " />
                 </button>

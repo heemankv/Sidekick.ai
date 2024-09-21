@@ -9,13 +9,13 @@ export default function Header() {
   const loading = status === "loading"
 
   return (
-    <header className="bg-white mx-6 border rounded-md">
+    <header className="bg-[#171717]">
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
-      <nav className="bg-[#171717] py-3 px-10 border-b border-[#f8f8f8] flex flex-row justify-between items-center">
-        <div className="text-[#f8f8f8] text-[16px]">
-          <h2>Sidekick.ai</h2>
+      <nav className="bg-[#171717] py-1 px-10 border-b border-[#f8f8f8] flex flex-row justify-between items-center">
+        <div className="text-[#f8f8f8] text-[20px] font-black">
+          <h1>Sidekick.ai</h1>
         </div>
         <div>
           <p>
@@ -42,20 +42,24 @@ export default function Header() {
                     style={{ backgroundImage: `url('${session.user.image}')` }}
                   />
                 )}
-                <span >
+                <div className="flex flex-row items-center">
+                <span className="text-[#f8f8f8] mx-4">
                   <small>Signed in as</small>
                   <br />
-                  <strong>{session.user.email ?? session.user.name}</strong>
+                  <strong className="text-[8px]">{session.user.email ?? session.user.name}</strong>
                 </span>
-                <a
-                  href={`/api/auth/signout`}
-                  onClick={(e) => {
-                    e.preventDefault()
+                <button className="bg-[#F8F8F8] text-[#171717] px-4 py-2 rounded-md">
+                  <a
+                    href={`/api/auth/signout`}
+                    onClick={(e) => {
+                      e.preventDefault()
                     signOut()
                   }}
                 >
                   Sign out
                 </a>
+                </button>
+                </div>
               </>
             )}
           </p>
