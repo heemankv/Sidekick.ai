@@ -9,12 +9,18 @@
       "128": "logo.png"
     }
   },
+  "permissions": [
+    "identity",
+    "storage"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "content_scripts": [
     {
       "matches": ["http://*/*"],
       "run_at": "document_start", 
       "js": ["jquery-3.5.0.js", "expanded.js", "popup.js"]
     }
-  ],
-  "permissions": []
+  ]
 }
