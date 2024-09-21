@@ -1,4 +1,5 @@
 import uuid
+import json
 
 import uvicorn
 from fastapi import FastAPI
@@ -20,7 +21,7 @@ async def root(request: Request):
 
 @app.post("/user")
 async def create_user(request: CreateUserRequest):
-    user = UserModel(user_id=uuid.uuid4().__str__(), world_coin_id=request.world_coin_id, json={})
+    user = UserModel(user_id=uuid.uuid4().__str__(), world_coin_id=request.world_coin_id, value={})
     print(user)
     resp = get_mongo_collection().insert_one(user.dict())
     print(resp)
@@ -40,10 +41,9 @@ async def input_prompt(request: BaseLLMInputData):
         prompt_resp = sidekick_ai.get_profession_from_prompt(request.prompt)
     else:
         return {"message": "Invalid prompt type"}
-    user = get_mongo_collection().find_one({"user_id": request.user_id})
-    print(prompt_resp)
-    user["prompt_response"][request.prompt_type] = prompt_resp
-    user.save()
+    user = get_mongo_collection().find_one({"user_id": request.user_id.__str__()})
+    user["prompt_response"][request.prompt_type] = json.loads(prompt_resp)
+    get_mongo_collection().update_one({"user_id": request.user_id.__str__()}, {"$set": user})
     return {"message": "thank you for your response"}
 
 
