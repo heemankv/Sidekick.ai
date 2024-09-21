@@ -1,7 +1,6 @@
-import pandas as pd
-from sidekickai.vector_db.db import Pinecone
-from sidekickai.gpt.completion import ChatCompletion
-from sidekickai.prompts.prompts import ADDRESS_PROMPT,PROFESSION_PROMPT, PROFIlE_PROMPT, FAMILY_PROMPT
+from llm.sidekickai.vector_db.db import Pinecone
+from llm.sidekickai.gpt.completion import ChatCompletion
+from llm.sidekickai.prompts.prompts import ADDRESS_PROMPT,PROFESSION_PROMPT, PROFIlE_PROMPT, FAMILY_PROMPT
 
 
 class SidekickAI:
