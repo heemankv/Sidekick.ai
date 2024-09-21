@@ -136,56 +136,73 @@ async def root():
 async def run(body: dict):
     # disable json : 
     json = {
-    # add realistic values
-        "designation" : "father-name-checkbox",
-        "last-name" : "Kumar",
-        "first-name" : "Rajesh",
-        "middle-name" : "Kumar",
+        "designation": "father-name-checkbox",
+        "last-name": "Shanker",
+        "first-name": "Anukkrit",
+        "middle-name": "",
         "full-name" : "full-name",
-        "single-mom" : "single-mom-yes",
-        "father-last-name" : "Kumar",
-        "father-first-name" : "Rajesh",
-        "father-middle-name" : "Kumar",
-        "mother-last-name" : "Kumari",
-        "mother-first-name" : "Rajesh",
-        "mother-middle-name" : "Kumar",
-        "parent-priority" : "father-name-radio",
-        "dd" : "02",
-        "mm" : "02",
-        "yyyy" : "2002",
-        "gender" : "male-radio",
-        "address-priority" : "residential-radio",
-        "office-name" : "Karnot",
-        "flat-door-block-no" : "101",
-        "name-of-premises" : "Sadbhawana",
-        "road-street-lane-post-office" : "Carrot Street",
-        "area-locality-taluka-sub-division" : "Kuala Lumpur",
-        "town-city-district" : "Kakarot",
-        "state-union-territory" : "Kerala",
-        "pin-input" : "110011",
-        "country" : "India",
-        
-        "country-code" : "91",
-        "email-id" : "rajeshkumar@gmail.com",
-        "mobile-no-radio" : "mobile-no-radio",
-        "area-std-code-input" : "011",
-        "aadhaar-radio" : "aadhaar-radio",
-        "aadhaar-number-input" : "123456789012",
-        "aadhaar-name-input" : "Rajesh Kumar",
-        "verification-input" : "Rajesh Kumar",
-        "verification-pronouns-select" : "Himself/herself",
-        "submitted-place-input" : "New Delhi",
-
-        "proof-of-identity-select" : "Adhaar Card",
-        "enclosed-select" : "Driver License",
-        "proof-of-address-select" : "Driver License",
-        "proof-of-date-of-birth-select" : "Adhaar Card",
-        "pan-card-type" : "physical-pan-card-radio",
-
-        "photo-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
-        "signature-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
-        "document-input" : "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
+        "single-mom": "single-mom-no",
+        "father-last-name": "Shanker",
+        "father-first-name": "Assumed Father",
+        "father-middle-name": "",
+        "mother-last-name": "Sinha",
+        "mother-first-name": "Minoo",
+        "mother-middle-name": "",
+        "parent-priority": "mother-name-radio",
+        "dd": "14",
+        "mm": "09",
+        "yyyy": "1999",
+        "gender": "male-radio",
+        "address-priority": "residential-radio",
+        "office-name": "QAD Technologies Pvt Ltd",
+        "flat-door-block-no": "72-A",
+        "name-of-premises": "Platinum Enclave",
+        "road-street-lane-post-office": "Sector 18",
+        "area-locality-taluka-sub-division": "Rohini",
+        "town-city-district": "New Delhi",
+        "state-union-territory": "Delhi",
+        "pin-input": "110085",
+        "country": "India",
+        "country-code": "91",
+        "email-id": "anukkrit.official@gmail.com",
+        "mobile-no-radio": "mobile-no-radio",
+        "area-std-code-input": "011",
+        "aadhaar-radio": "aadhaar-radio",
+        "aadhaar-number-input": "123456789012",
+        "aadhaar-name-input": "Anukkrit Shanker",
+        "verification-input": "Anukkrit Shanker",
+        "verification-pronouns-select": "Himself",
+        "submitted-place-input": "New Delhi",
+        "proof-of-identity-select": "Aadhaar Card",
+        "enclosed-select": "Driver License",
+        "proof-of-address-select": "Aadhaar Card",
+        "proof-of-date-of-birth-select": "Aadhaar Card",
+        "pan-card-type": "physical-pan-card-radio",
+        "photo-input": "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
+        "signature-input": "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
+        "document-input": "/Users/dexterhv/Downloads/kiochi-ppl-010.jpg",
+        "professional_info": {
+            "occupation": "Software engineer",
+            "experience": "5 years",
+            "annual_salary": "30LPA",
+            "company": {
+            "name": "QAD Technologies Pvt Ltd",
+            "phone": "+12-1231221",
+            "website": "QAD.com"
+            }
+        },
+        "mother_info": {
+            "full_name": "Minoo Sinha",
+            "date_of_birth": "05/06/1970",
+            "phone": "9821345670"
+        }
     }
+
+    # Create a json based on this data  : 
+    # Hi I am Anukkrit Shanker, male, born 14/09/1999, email anukkrit.official@gmail,com, phone 9876543210
+# Minoo Sinha, Mother, 05/06/1970, 9821345670
+# 72-A, Platinum Enclave, Sector 18, Rohini, New Delhi - 110085
+# Software engineer, 5 years experience, 30LPA, QAD Technologies Pvt Ltd, +12-1231221, QAD.com
 
     hash = run_selenium_bot(json)
     if hash is None :
