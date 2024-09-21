@@ -1,8 +1,9 @@
 import uuid
 import json
-
+import hashlib
 import uvicorn
 from fastapi import FastAPI
+import requests
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.requests import Request
 from mongo.mongodb import get_mongo_client, get_mongo_db, get_mongo_collection
@@ -15,6 +16,22 @@ app = FastAPI()
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 sidekick_ai = SidekickAI()
 
+def calculate_sha256(data):
+  """Calculates the SHA-256 hash of the given data.
+
+  Args:
+      data: The data to hash (string or bytes).
+
+  Returns:
+      The SHA-256 hash as a hexadecimal string.
+  """
+
+  if isinstance(data, str):
+      data = data.encode('utf-8')  # Encode string to bytes if necessary
+
+  hash_object = hashlib.sha256()
+  hash_object.update(data)
+  return hash_object.hexdigest()
 
 @app.get("/")
 async def root(request: Request):
@@ -50,8 +67,29 @@ async def input_prompt(request: BaseLLMInputData):
 
 
 @app.get("/post-form")
-async def post():
-    return {"message": "form submitted ZK proof ID"}
+async def post(request: Request):
+    user_id = request.query_params.get("user_id")
+    user = get_mongo_collection().find_one({"user_id": user_id})
+    if user is None:
+        return {"message": "User not found"}
+    data = user["prompt_response"]
+    # call selenium
+    api_call = requests.request("POST", "localhost:5001/run", data=data)
+    resp = api_call.json()
+    # call zk proof
+    zk_call_data = {
+                    "llmQuestionsHash": calculate_sha256(data),
+                    "userInputsHash": calculate_sha256(data),
+                    "llmResponsesHash": calculate_sha256(resp),
+                    "portalSubmissionsHash": calculate_sha256(resp),
+                }
+    zk_call = requests.request("POST", "localhost:3002/run", data=zk_call_data)
+    if zk_call.status_code != 200:
+        return {"message": "error in zk proof"}
+    resp = zk_call.json()
+    print(resp)
+
+    return {"message": "form submitted ZK proof ID", "hash": resp.get("hash")}
 
 
 if __name__ == "__main__":
