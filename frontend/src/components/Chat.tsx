@@ -6,7 +6,22 @@ import useAutoResizeTextArea from "../hooks/useAutoResizeTextArea";
 import Message from "./Message";
 import { DEFAULT_OPENAI_MODEL } from "../shared/Constants";
 import { useSession } from "next-auth/react";
-import {sendPrompt, sendUserID} from "../utils/helpers";
+import {sendPrompt, sendSubmission, sendUserID} from "../utils/helpers";
+
+
+
+function getMessageForLevel(conversationLevel: String): String {
+  if (conversationLevel === "profile") {
+    return "Please share your personal info like Name, DOB, Email, phone";
+  } else if (conversationLevel === "family") {
+    return "Please share your family info like Father's Name, Mother's Name, Siblings, etc.";
+  } else if (conversationLevel === "address") {
+    return "Please share your address info like Address, City, State, etc.";
+  } else if (conversationLevel === "profession") {
+    return "Please share your profession info like Education, Work Experience, etc.";
+  }
+  return "";
+}
 
 const Chat = () => {
   const toggleComponentVisibility = true;
@@ -18,6 +33,12 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const textAreaRef = useAutoResizeTextArea();
   const bottomOfChatRef = useRef<HTMLDivElement>(null);
+
+  // 0 -> set profile
+  // 1 -> set family
+  // 2 -> set address
+  // 3 -> set credentials
+  const [conversationLevel, setConversationLevel] = useState("profile");
 
   const { data: session, status } = useSession()
 
@@ -55,10 +76,9 @@ const Chat = () => {
     setIsLoading(true);
 
     // Add the message to the conversation
-    setConversation([
-      ...conversation,
+    setConversation((prevValue: any) => [
+      ...prevValue,
       { content: message, role: "user" },
-      { content: null, role: "system" },
     ]);
 
     // Clear the message & remove empty chat
@@ -69,22 +89,45 @@ const Chat = () => {
 
       let response = await sendPrompt(
           session?.user?.name?.toString() ?? "",
-          "profile",
+          conversationLevel,
           message);
 
-      console.log(response," responseresponseresponse");
-
       if (response !== undefined) {
-        setConversation([
-          ...conversation,
-          { content: message, role: "user" },
+        setConversation((prevValue: any) => [
+          ...prevValue,
           { content: response.message, role: "system" },
         ]);
+
+        if(conversationLevel == "profession") {
+          let response = await sendSubmission();
+          console.log(response, "form submitteddd ");
+        }
+
       } else {
         console.error(response);
       }
 
-      setIsLoading(false);
+    if (conversationLevel === "profile") {
+      setConversationLevel("family");
+      setConversation((prevValue: any) => [
+        ...prevValue,
+        { content: getMessageForLevel("family"), role: "system" },
+      ]);
+    } else if (conversationLevel === "family") {
+      setConversationLevel("address");
+      setConversation((prevValue: any) => [
+        ...prevValue,
+        { content: getMessageForLevel("address"), role: "system" },
+      ]);
+    } else if (conversationLevel === "address") {
+      setConversationLevel("profession");
+      setConversation((prevValue: any) => [
+        ...prevValue,
+        { content: getMessageForLevel("profession"), role: "system" },
+      ]);
+    }
+
+    setIsLoading(false);
     } catch (error: any) {
       console.error(error);
       setErrorMessage(error.message);
@@ -92,8 +135,6 @@ const Chat = () => {
       setIsLoading(false);
     }
   };
-
-  console.log(conversation," sdkjbskdbhvbj ksdbkvsd");
 
   const handleKeypress = (e: any) => {
     // It's triggers by pressing the enter key

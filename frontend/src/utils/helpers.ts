@@ -1,5 +1,4 @@
-
-const backendURL = "http://localhost:8000";
+const backendURL = "https://9d6e-223-255-254-102.ngrok-free.app";
 
 async function sendUserID(userWorldId : String) : Promise<String> {
   console.log("sending user id", userWorldId) 
@@ -26,7 +25,7 @@ async function sendUserID(userWorldId : String) : Promise<String> {
 // address
 // family
 
-async function sendPrompt( user_id : String, prompt_type: String, prompt: String) : Promise<String> {
+async function sendPrompt( user_id : String, prompt_type: String, prompt: String) : Promise<{ message : String}> {
   // here's a post call to backendURL
 
   const response = await fetch(`${backendURL}/prompt`, {
@@ -47,4 +46,35 @@ async function sendPrompt( user_id : String, prompt_type: String, prompt: String
 }
 
 
-export { sendUserID, sendPrompt };
+// curl --location 'localhost:8000//post-form'
+
+async function sendSubmission() : Promise<String> {
+
+  const response = await fetch(`${backendURL}/post-form`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to send prompt');
+  }
+  const data = await response.json();
+  return data;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+export { sendUserID, sendPrompt, sendSubmission };
