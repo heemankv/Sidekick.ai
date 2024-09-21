@@ -5,6 +5,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import useAutoResizeTextArea from "../hooks/useAutoResizeTextArea";
 import Message from "./Message";
 import { DEFAULT_OPENAI_MODEL } from "../shared/Constants";
+import { useSession } from "next-auth/react";
+import { sendUserID } from "../utils/helpers";
 
 const Chat = () => {
   const toggleComponentVisibility = true;
@@ -17,6 +19,8 @@ const Chat = () => {
   const textAreaRef = useAutoResizeTextArea();
   const bottomOfChatRef = useRef<HTMLDivElement>(null);
 
+  const { data: session, status } = useSession()
+
   const selectedModel = DEFAULT_OPENAI_MODEL;
 
   useEffect(() => {
@@ -25,6 +29,11 @@ const Chat = () => {
       textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
     }
   }, [message, textAreaRef]);
+
+
+  useEffect(() => {
+    sendUserID(session?.user?.name?.toString() ?? "")
+  }, [session])
 
   useEffect(() => {
     if (bottomOfChatRef.current) {
