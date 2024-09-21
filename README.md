@@ -63,7 +63,6 @@
 
 - **Worldcoin** : Best Public Goods Use Case
 - **Gaia** : Build a Public Good Integration with web3 AI
-- **Mina** :Best Mina application or library built using Protokit
 
 ## Deployed Contracts (MINA 🟠)
 
