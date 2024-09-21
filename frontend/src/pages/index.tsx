@@ -1,14 +1,26 @@
+import { useState, useEffect } from "react"
+import { useSession } from "next-auth/react"
 import Layout from "../components/layout"
+import AccessDenied from "../components/access-denied"
+import Chat from "../components/Chat"
 
-export default function IndexPage() {
+export default function ProtectedPage() {
+  const { data: session } = useSession()
+  const [content, setContent] = useState()
+
+  // If no session exists, display access denied message
+  if (!session) {
+    return (
+      <Layout>
+        <AccessDenied />
+      </Layout>
+    )
+  }
+
+  // If session exists, display content
   return (
     <Layout>
-      <h1>NextAuth.js Example</h1>
-      <p>
-        This is an example site to demonstrate how to use{" "}
-        <a href="https://next-auth.js.org">NextAuth.js</a> with {" "}
-        <a href ="https://worldcoin.org/world-id">World ID</a> for authentication.
-      </p>
+      <Chat/>
     </Layout>
   )
 }
